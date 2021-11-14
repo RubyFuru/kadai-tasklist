@@ -33,7 +33,7 @@ public class ShowServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        //該当のID件をデータベースから取得
+        //該当のID1件をデータベースから取得
         Task t = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
@@ -45,9 +45,6 @@ public class ShowServlet extends HttpServlet {
         rd.forward(request,  response);
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
